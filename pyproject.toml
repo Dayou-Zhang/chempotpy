@@ -1,0 +1,37 @@
+[project]
+name = "chempotpy"
+description = "chempotpy: CHEMical library of POTential energy surfaces in PYthon"
+authors = [
+    { name = "Yinan Shu"},
+    { name = "Zoltan Varga"},
+    { name = "Dayou Zhang"},
+    { name = "Donald G. Truhlar"}
+]
+requires-python = ">= 3.8"
+dependencies = [
+    "numpy>=2.0.2",
+]
+dynamic = ["version"]
+
+[build-system]
+requires = [
+    "scikit-build-core",
+    "numpy>=2.0.2",
+]
+build-backend = "scikit_build_core.build"
+metadata.version.provider = "scikit_build_core.metadata.setuptools_scm"
+sdist.include = ["chempotpy/_version.py"]
+
+[tool.setuptools_scm]
+write_to = "chempotpy/_version.py"
+
+[tool.scikit-build]
+sdist.exclude = [
+    ".github",
+    "**/*.pyf",
+]
+
+[tool.cibuildwheel]
+test-requires = "pytest"
+test-command = "pytest {project}/tests"
+before-all = "yum -y install blas-devel"
