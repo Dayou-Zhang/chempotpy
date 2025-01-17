@@ -38,12 +38,11 @@ foreach(fortran_src_file ${sources})
       DEPENDS "${f2py_signature_file}" "${fortran_src_file}"
     )
 
-    message("processing ${module_build_dir}")
+    message("processing ${f2py_dir_name}/${f2py_module_src}")
     add_custom_command(
       OUTPUT "${module_build_dir}/${f2py_module_c}" "${module_build_dir}/${f2py_module_f}"
       COMMAND ${Python_EXECUTABLE}  -m "numpy.f2py"
                        "${module_build_dir}/${f2py_module_sig}"
-                       --lower
       DEPENDS "${module_build_dir}/${f2py_module_sig}" "${module_build_dir}/${f2py_module_src}"
       WORKING_DIRECTORY "${module_build_dir}"
     )
