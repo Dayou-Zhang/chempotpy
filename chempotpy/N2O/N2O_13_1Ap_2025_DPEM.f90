@@ -395,7 +395,9 @@
     Ar=0.5+0.5*tanh(af_f*(r_in-af_a))
     Br=0.5+0.5*tanh(af_f*(-r_in+af_b))
 
-    dfdr_in=af_f*(-0.25*tanh(af_f*(r_in-af_a))-0.25)/((cosh(af_f*(-r_in+af_b)))**2) + af_f*(0.25+0.25*tanh(af_f*(-r_in+af_b)))/((cosh(af_f*(r_in-af_a)))**2)
+    dfdr_in=af_f*(-0.25*tanh(af_f*(r_in-af_a))-0.25)/&
+        &((cosh(af_f*(-r_in+af_b)))**2) + af_f*&
+        &(0.25+0.25*tanh(af_f*(-r_in+af_b)))/((cosh(af_f*(r_in-af_a)))**2)
 
     dr_indr=0.d0
     do ibond=1,nbonds

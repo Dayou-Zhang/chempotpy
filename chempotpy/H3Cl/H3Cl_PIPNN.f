@@ -7,8 +7,7 @@
        implicit none
        real*8,parameter::alpha=1.5d0,PI=3.1415926d0,radian=PI/180.0d0
        integer,parameter::nbasis=50,ndim=6,natom=4
-       integer,parameter::ninput=50
-       integer noutput,nhid,nlayer,ifunc,nwe,nodemax
+       integer ninput,noutput,nhid,nlayer,ifunc,nwe,nodemax
        integer nscale
        integer, allocatable::nodes(:)
 
@@ -387,7 +386,7 @@ C##############################################################################
       open(4,file=file_path2,status='old')
         nfile=7
         open(nfile,file=file_path1)
-        read(nfile,*)nhid,noutput
+        read(nfile,*)ninput,nhid,noutput
         nscale=ninput+noutput
         nlayer=nhid+2 !additional one for input layer and one for output 
         allocate(nodes(nlayer),pdela(nscale),pavga(nscale))
@@ -438,7 +437,7 @@ C##############################################################################
       open(4,file=file_path4,status='old')
         nfile=8
         open(nfile,file=file_path3)
-        read(nfile,*)nhid,noutput
+        read(nfile,*)ninput,nhid,noutput
         nscale=ninput+noutput
         nlayer=nhid+2 !additional one for input layer and one for output 
         allocate(pdelb(nscale),pavgb(nscale))
@@ -489,7 +488,7 @@ C##############################################################################
       open(4,file=file_path6,status='old')
         nfile=9
         open(nfile,file=file_path5)
-        read(nfile,*)nhid,noutput
+        read(nfile,*)ninput,nhid,noutput
         nscale=ninput+noutput
         nlayer=nhid+2 !additional one for input layer and one for output 
         allocate(pdelc(nscale),pavgc(nscale))
