@@ -1,0 +1,17 @@
+!    -*- f90 -*-
+! Note: the context of this file is case sensitive.
+
+python module MCHWB_LEPS_ModelSurface_DPEM ! in 
+    interface  ! in :MCHWB_LEPS_ModelSurface_DPEM
+        subroutine dpem(x,igrad,u,ug) ! in :MCHWB_LEPS_ModelSurface_DPEM:MCHWB_LEPS_ModelSurface_DPEM.f
+            double precision dimension(3,3),intent(in) :: x
+            integer intent(in) :: igrad
+            double precision dimension(2,2),intent(out) :: u
+            double precision dimension(2,2,3,3),intent(out) :: ug
+        end subroutine dpem
+    end interface 
+end python module MCHWB_LEPS_ModelSurface_DPEM
+
+! This file was auto-generated with f2py (version:2.1.0).
+! See:
+! https://web.archive.org/web/20140822061353/http://cens.ioc.ee/projects/f2py2e
