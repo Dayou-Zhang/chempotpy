@@ -98,7 +98,7 @@ C
 
       integer i,igrad,j,nob,k
       double precision V
-      double precision dVdX(12),X(12) 
+      double precision dVdX(9),X(9)
 
 C      common /coord/    R(3)
 C      common /epot/     rMs(3),rM(0:7),P(0:66),C(56),B(56)
@@ -130,7 +130,7 @@ C Call EvdVdX to evaluate the derivatives of V w.r.t. X
       implicit double precision (a-h,o-z) 
 
       integer i
-      double precision X(12)
+      double precision X(9)
 
       common /coord/    R(3)
       
