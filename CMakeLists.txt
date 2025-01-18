@@ -1,13 +1,12 @@
-cmake_minimum_required(VERSION 3.16)
+cmake_minimum_required(VERSION 3.18)
 
 project(toy
   LANGUAGES C Fortran
   )
 
 find_package(Python REQUIRED COMPONENTS Interpreter Development.Module NumPy)
-
 find_package(BLAS REQUIRED)
-message("BLAS found. ${BLAS_LIBRARIES}")
+find_package(LAPACK REQUIRED)
 
 # f2py headers
 execute_process(
@@ -30,6 +29,9 @@ foreach(fortran_src_file ${sources})
     get_filename_component(f2py_module_sig ${f2py_signature_file} NAME)
     set(module_build_dir "${CMAKE_BINARY_DIR}/${f2py_module_name}")
 
+    # F2PY have to generate all wrapper source files in the same directory
+    # as the Fortran files. We need to copy the Fortran files to the build
+    # directories to avoid contaminating the source directory.
     add_custom_command(
       OUTPUT "${module_build_dir}/${f2py_module_sig}" "${module_build_dir}/${f2py_module_src}"
       COMMAND mkdir -p "${module_build_dir}"
@@ -58,7 +60,14 @@ foreach(fortran_src_file ${sources})
         ${F2PY_INCLUDE_DIR}
     )
 
-    target_link_libraries(${f2py_module_name} PUBLIC Python::NumPy ${BLAS_LIBRARIES})
+    target_link_libraries(${f2py_module_name} PUBLIC Python::NumPy BLAS::BLAS LAPACK::LAPACK)
+
+    # Make sure .mod files are generate in seperate directories
+    # Some Fortran files may contain modules of the same name, which could
+    # conflict with each other.
+    set_target_properties(${f2py_module_name} PROPERTIES
+        Fortran_MODULE_DIRECTORY "${module_build_dir}"
+    )
 
     file(RELATIVE_PATH install_dir ${CMAKE_SOURCE_DIR} ${f2py_dir_name})
     install(TARGETS ${f2py_module_name} DESTINATION "${install_dir}")
