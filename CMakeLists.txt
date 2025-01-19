@@ -73,3 +73,11 @@ foreach(fortran_src_file ${sources})
     install(TARGETS ${f2py_module_name} DESTINATION "${install_dir}")
 
 endforeach()
+
+# Some old codes rely on implicit dimension conversion.
+# They need to be compiled with -std=legacy in gfortran
+target_compile_options(NaH2_LEPS_6_2000_DPEM PRIVATE -std=legacy)
+target_compile_options(OH2_Ap_GEN_M21986 PRIVATE -std=legacy)
+target_compile_options(OH2_App_GEN_M21986 PRIVATE -std=legacy)
+target_compile_options(OH2_App_GEN_M3n1988 PRIVATE -std=legacy)
+target_compile_options(OH2_App_GEN_M3na1988 PRIVATE -std=legacy)

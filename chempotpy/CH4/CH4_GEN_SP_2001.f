@@ -46,11 +46,13 @@
       character(len=1024), intent(in) :: path
       integer ::  ifirst=0
       double precision :: v0
-      double precision :: v, energy_hartree
+      double precision :: v, energy_hartree, eh(1,1)
       double precision :: xx(5,3), z(10)
 
       call methaneradau(xx,z)
-      call vibpot(z, energy_hartree, 1, path)
+      call vibpot(reshape(z, shape=[1, size(z)]),
+     &            eh, 1, path)
+      energy_hartree = eh(1,1)
 
       v0=-28.11193019d0*4.556335d-6
       v = energy_hartree-v0
