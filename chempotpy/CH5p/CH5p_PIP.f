@@ -32,7 +32,7 @@
 
 
       real :: tx(natoms,3)
-      double precision :: v
+      double precision :: v, v_arr(1)
       integer :: iatom, idir, j, istate
       !initialize 
       v=0.d0
@@ -46,7 +46,8 @@
       enddo
 
       if (igrad==0) then
-        call mycalcpot(x,1,v)
+        call mycalcpot(reshape(x, [1, natoms, 3]), 1, v_arr)
+        v=v_arr(1)
         v=v*27.211386
         do istate=1,nstates
           p(istate)=v
