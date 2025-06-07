@@ -2,7 +2,7 @@
 ChemPotPy, CHEMical library of POTential energy surfaces in PYthon 
 ==================================================================
 
-Jan. 17, 2025
+June 7, 2025
 
 Authors: Yinan Shu, Zoltan Varga, Dayou Zhang, Donald G. Truhlar
 University of Minnesota, Minnesota, United States
@@ -15,6 +15,47 @@ All fortran source code are stored in folder chempotpy
 
 How to install
 --------------
+Users can install the stable release using:
+
+```
+pip install chempotpy
+```
+
+We provide pre-compiled binary wheels for Linux x86_64 platform. By default
+the above command will install the binary wheels. They should work on the
+vast majority of desktop and server Linux distributions. 
+The binary wheels are compiled against OpenBLAS for surfaces requiring BLAS
+and LAPACK routines. The OpenBLAS library is included in the binary wheels.
+
+Users also have the option to compile the potential energy surface libraries
+from source. Detailed instructions on installing from source can be found
+below.
+
+<details>
+<summary>Instructions for installing from source (click here to expand)</summary>
+    
+* Ensure your system have a working Fortran and C compiler, as well as a working
+  BLAS and LAPACK library installed
+
+* Start compiling:
+
+```
+pip install chempotpy --no-binary chempotpy --verbose
+```
+
+  The build system will install all build dependencies automatically (including
+  CMake). It will then configure, build, and install the package. The entire
+  process takes about 20-30 minutes on a 4-processor computation node.
+
+  If CMake cannot locate the desired BLAS and/or LAPACK library, you can try again
+  after setting environmental variables such as `BLA_VENDOR`. See the CMake
+  [documentation](https://cmake.org/cmake/help/latest/module/FindBLAS.html) for more details.
+
+</details>
+
+<details>
+<summary>Legacy instructions for chempotpy 1.0.x (click here to expand)</summary>
+
 * Create a conda virtual environment with gfortran and MKL:
     
        conda create --name chempotpy
@@ -38,17 +79,18 @@ How to install
         make all 
         make check
 
+</details>
 
 Compile Chempotpy subroutine
 ----------------------------
 One can use the meta programming script to automatically generate a 
 fortran subroutine. 
 
-  create a conda vitural environment as suggested in How to install
-
   get into the parent directory of chempotpy/chempotpy
 
-       ./meta_chempotpy.script
+```
+./meta_chempotpy.script
+```
 
 The meta program will generate a fortran subroutine called chempotpy. 
 One can interface this chempotpy subroutine with any dynamics code. 
