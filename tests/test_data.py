@@ -1,9 +1,10 @@
 import numpy as np
 import chempotpy
 import json
+import os
 import pytest
 
-with open('data.json') as f:
+with open(os.path.join(os.path.dirname(__file__), 'data.json')) as f:
     data = json.load(f)
 
 @pytest.mark.parametrize("d", data)
