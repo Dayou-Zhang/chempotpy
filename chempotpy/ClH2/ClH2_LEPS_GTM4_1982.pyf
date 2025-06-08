@@ -20,23 +20,6 @@ python module ClH2_LEPS_GTM4_1982 ! in
             common /pt1cm/ rab,rbc,rac,energy,der
             common /pt2cm/ nsurf,nder,ndum
         end subroutine pes
-        block data ptparm ! in :ClH2_LEPS_GTM4_1982:ClH2_LEPS_GTM4_1982.f
-            integer, optional :: iptprt=6
-            integer dimension(19) :: idum
-            integer, optional :: nsurf=0
-            integer, optional :: nder=1
-            integer, optional,dimension(21) :: ndum=21*0
-            double precision, optional,dimension(3) :: de=106.447d0
-            double precision, optional,dimension(3) :: req=1.2732d0
-            double precision, optional,dimension(3) :: beta=1.8674d0
-            double precision, optional :: lamda=8.2444d0
-            double precision, optional :: a=0.272d0
-            double precision, optional :: gamma=0.5d0
-            double precision, optional :: rbb=0.74127d0
-            common /pt4cm/ iptprt,idum
-            common /pt2cm/ nsurf,nder,ndum
-            common /pparcm/ de,req,beta,lamda,a,gamma,rbb
-        end block data ptparm
     end interface 
 end python module ClH2_LEPS_GTM4_1982
 

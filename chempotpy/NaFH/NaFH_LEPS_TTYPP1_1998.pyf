@@ -10,18 +10,6 @@ python module NaFH_LEPS_TTYPP1_1998 ! in
             double precision dimension(2,3,3),intent(out) :: g
             double precision dimension(2,2,3,3),intent(out) :: d
         end subroutine pes
-        block data uonetwo ! in :NaFH_LEPS_TTYPP1_1998:NaFH_LEPS_TTYPP1_1998.f
-            double precision, optional :: ahf=3.0000d0
-            double precision, optional :: anaf=18.0000d-1
-            double precision, optional :: anah=16.0000d-1
-            double precision, optional :: r21=0.7000d0
-            double precision, optional :: r23=-3.3006d-1
-            double precision, optional :: r13=1.2431d0
-            double precision, optional,dimension(4) :: ccmf=3.9960d0
-            double precision, optional,dimension(4) :: ccmh=1.00d0
-            common /ucoupl/ ahf,anaf,anah,r21,r23,r13
-            common /ucoupl1/ ccmf,ccmh
-        end block data uonetwo
     end interface 
 end python module NaFH_LEPS_TTYPP1_1998
 

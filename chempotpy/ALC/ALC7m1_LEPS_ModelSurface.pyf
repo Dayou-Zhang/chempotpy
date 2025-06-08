@@ -18,23 +18,6 @@ python module ALC7m1_LEPS_ModelSurface ! in
             common /pt1cm/ rr,e,dedrr
             common /pt2cm/ nsurf,nder,ndum
         end subroutine pes
-        block data ptparm ! in :ALC7m1_LEPS_ModelSurface:ALC7m1_LEPS_ModelSurface.f
-            integer, optional :: iptprt=6
-            integer dimension(19) :: idum
-            integer, optional :: nsurf=0
-            integer, optional :: nder=1
-            integer, optional,dimension(21) :: ndum=21*0
-            double precision, optional,dimension(3) :: de=74.00000d0
-            double precision, optional,dimension(3) :: re=1.10000d0
-            double precision, optional,dimension(3) :: beta=2.16060d0
-            double precision, optional,dimension(3) :: z=0.00000d0
-            double precision, optional :: an1=0.026d0
-            double precision, optional :: fns= 0.004d0
-            common /pt4cm/ iptprt,idum
-            common /pt2cm/ nsurf,nder,ndum
-            common /satocm/ de,re,beta,z
-            common /vacom/ an1,fns
-        end block data ptparm
     end interface 
 end python module ALC7m1_LEPS_ModelSurface
 

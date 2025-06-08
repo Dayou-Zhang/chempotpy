@@ -24,40 +24,6 @@ python module FH2_LEPS_SK_1980 ! in
             common /usrocm/ pengygs,pengyes,pengyij,dgscart,descart,dijcart
             common /usricm/ cart,anuzero,nulbl,nflag,nasurf,nder
         end subroutine pes
-        block data ptpacm ! in :FH2_LEPS_SK_1980:FH2_LEPS_SK_1980.f
-            double precision dimension(6) :: ezero
-            double precision dimension(25,3) :: cartnu
-            integer dimension(25) :: indexes
-            integer :: irctnt
-            integer, optional :: natoms=3
-            integer, optional :: icartr=3
-            integer, optional :: mder=1
-            integer, optional :: msurf=0
-            character*75 dimension(5) :: ref
-            double precision dimension(25,3) :: cart
-            double precision, optional :: anuzero=0.0d0
-            integer, optional,dimension(25) :: nulbl=25*0
-            integer, optional,dimension(20) :: nflag=1
-            integer, optional,dimension(6,6) :: nasurf=1
-            integer, optional :: nder=0
-            double precision :: easyab
-            double precision :: easybc
-            double precision :: easyac
-            double precision, optional,dimension(3) :: de=141.196d0
-            double precision, optional,dimension(3) :: re=0.917d0
-            double precision, optional,dimension(3) :: beta=2.2087d0
-            double precision, optional,dimension(3) :: z=0.167d0
-            integer, parameter,optional :: n3atom=75
-            integer, parameter,optional :: isurf=5
-            integer, parameter,optional :: jsurf=15.0
-            double precision, parameter,optional :: pi=3.141592653589793
-            integer, parameter,optional :: natom=25
-            common /pt3cm/ ezero
-            common /infocm/ cartnu,indexes,irctnt,natoms,icartr,mder,msurf,ref
-            common /usricm/ cart,anuzero,nulbl,nflag,nasurf,nder
-            common /asycm/ easyab,easybc,easyac
-            common /satocm/ de,re,beta,z
-        end block data ptpacm
     end interface 
 end python module FH2_LEPS_SK_1980
 

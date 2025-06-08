@@ -18,20 +18,6 @@ python module BrH2_LEPS_W_1959 ! in
             common /pt1cm/ r,energy,dedr
             common /pt2cm/ nsurf,nder,ndum
         end subroutine pes
-        block data ptparm ! in :BrH2_LEPS_W_1959:BrH2_LEPS_W_1959.f
-            integer, optional :: iptprt=6
-            integer dimension(19) :: idum
-            integer :: nsurf
-            integer, optional :: nder=1
-            integer, optional,dimension(21) :: ndum=21*0
-            double precision, optional,dimension(3) :: de=90.32790d0
-            double precision, optional,dimension(3) :: re=1.41381d0
-            double precision, optional,dimension(3) :: beta=1.81088d0
-            double precision, optional,dimension(3) :: z=0.2d0
-            common /pt4cm/ iptprt,idum
-            common /pt2cm/ nsurf,nder,ndum
-            common /satocm/ de,re,beta,z
-        end block data ptparm
     end interface 
 end python module BrH2_LEPS_W_1959
 

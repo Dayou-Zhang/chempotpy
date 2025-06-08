@@ -24,45 +24,6 @@ python module IH2_LEPS_RSPTS_1970 ! in
             common /usrocm/ pengygs,pengyes,pengyij,dgscart,descart,dijcart
             common /usricm/ cart,anuzero,nulbl,nflag,nasurf,nder
         end subroutine pes
-        block data ptpacm ! in :IH2_LEPS_RSPTS_1970:IH2_LEPS_RSPTS_1970.f
-            double precision dimension(6) :: ezero
-            double precision dimension(25,3) :: cartnu
-            integer dimension(25) :: indexes
-            integer :: irctnt
-            integer, optional :: natoms=3
-            integer, optional :: icartr=3
-            integer, optional :: mder=1
-            integer, optional :: msurf=0
-            character*75 dimension(5) :: ref
-            double precision dimension(25,3) :: cart
-            double precision, optional :: anuzero=0.0d0
-            integer, optional,dimension(25) :: nulbl=25*0
-            integer, optional,dimension(20) :: nflag=1
-            integer, optional,dimension(6,6) :: nasurf=1
-            integer, optional :: nder=0
-            double precision :: easyab
-            double precision :: easybc
-            double precision :: easyac
-            double precision, optional,dimension(3) :: d1=3.194d0
-            double precision, optional,dimension(3) :: d3=1.44399d0
-            double precision, optional,dimension(3) :: alph=0.9468d0
-            double precision, optional,dimension(3) :: beta=0.794d0
-            double precision, optional,dimension(3) :: re=3.032d0
-            double precision, optional,dimension(3) :: a=-3.60481d0
-            double precision, optional,dimension(3) :: c=73599.62d0
-            double precision, optional,dimension(3) :: sig=2.47075d0
-            double precision, optional,dimension(3) :: rc=4.25d0
-            integer, parameter,optional :: n3atom=75
-            integer, parameter,optional :: isurf=5
-            integer, parameter,optional :: jsurf=15.0
-            double precision, parameter,optional :: pi=3.141592653589793
-            integer, parameter,optional :: natom=25
-            common /pt3cm/ ezero
-            common /infocm/ cartnu,indexes,irctnt,natoms,icartr,mder,msurf,ref
-            common /usricm/ cart,anuzero,nulbl,nflag,nasurf,nder
-            common /asycm/ easyab,easybc,easyac
-            common /parmcm/ d1,d3,alph,beta,re,a,c,sig,rc
-        end block data ptpacm
     end interface 
 end python module IH2_LEPS_RSPTS_1970
 
