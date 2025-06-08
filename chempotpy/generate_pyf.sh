@@ -2,7 +2,8 @@
 
 # Generate a .pyf signature file for the F2PY build system
 # Only create wrappers for function pes() and dpem()
-# Dayou Zhang, Jan 17, 2025
+# Remove wrappers for block data and module
+# Dayou Zhang, June 7, 2025
 
 for i in $@
 do
@@ -11,5 +12,6 @@ do
     (
         cd $dir
         python -m numpy.f2py $name only: pes dpem : -m ${name%.*} -h ${name%.*}.pyf
+        sed -i '/^  *block data/,/^  *end block data/d;/^  *module/,/^  *end module/d' ${name%.*}.pyf
     )
 done
